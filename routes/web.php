@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route to MovieController 
+// Route to MovieController
 Route::resource("movies", "MovieController");

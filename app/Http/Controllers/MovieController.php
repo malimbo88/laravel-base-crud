@@ -31,7 +31,8 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        // Return to view create.blade.php
+        return view("create");
     }
 
     /**
