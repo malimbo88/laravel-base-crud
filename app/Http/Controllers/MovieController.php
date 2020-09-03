@@ -43,7 +43,26 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+          "title" => "required|unique:posts|max:255",
+          "description" => "",
+          "year" => "",
+          "rating" => "",
+        ]);
+
+        //Array with all the data from the database
+        $data_request = $request->all();
+
+        // New is a Database's row created
+        $new_movie = new Movie();
+        $new_movie->title = $data_request["title"];
+        $new_movie->description = $data_request["description"];
+        $new_movie->year = $data_request["year"];
+        $new_movie->rating = $data_request["rating"];
+
+        // Save the new row
+        $save = $new_movie->save();
+
     }
 
     /**
