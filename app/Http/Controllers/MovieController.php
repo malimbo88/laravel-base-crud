@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// Model Movie
+use App\Movie;
+
 class MovieController extends Controller
 {
     /**
@@ -13,7 +16,12 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        // Get all from Movie
+        $movies = Movie::all();
+
+        // Return $movies to view movies.blade.php
+        return view("movies" , compact("movies"));
+
     }
 
     /**
@@ -43,9 +51,9 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Movie $movie)
     {
-        //
+        return view("show", compact("movie"));
     }
 
     /**
