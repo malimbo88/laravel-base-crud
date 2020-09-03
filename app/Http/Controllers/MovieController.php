@@ -44,10 +44,10 @@ class MovieController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-          "title" => "required|unique:posts|max:255",
-          "description" => "",
-          "year" => "",
-          "rating" => "",
+          "title" => "required|max:255",
+          "description" => "required",
+          "year" => "required|integer|min:1895|max:2020",
+          "rating" => "required|integer|",
         ]);
 
         //Array with all the data from the database

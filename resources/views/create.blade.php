@@ -24,28 +24,28 @@
 {{-- Data Title --}}
 <div class="data script">
   <label>Title</label>
-  <input type="text" name="title">
+  <input type="text" name="title" value="{{ old("title") }}">
 </div>
 {{-- end Data Title --}}
 
 {{-- Data Description --}}
 <div class="data text">
   <label>Description</label>
-  <textarea name="description" rows="8" cols="80"></textarea>
+  <textarea name="description" rows="8" cols="80">{{ old("description") }}</textarea>
 </div>
 {{-- end Data Description --}}
 
 {{-- Data Year --}}
 <div class="data integer">
   <label>Year</label>
-  <input type="text" name="year">
+  <input type="text" name="year" value="{{ old("year") }}">
 </div>
 {{-- end Data Year --}}
 
 {{-- Data Rating --}}
 <div class="data integer">
   <label>Rating</label>
-  <input type="text" name="rating">
+  <input type="text" name="rating" value="{{ old("rating") }}">
 </div>
 {{-- end Data Rating --}}
 
