@@ -55,9 +55,14 @@ class MovieController extends Controller
 
         // New is a Database's row created
         $new_movie = new Movie();
-        $new_movie->title = $data_request["title"];
-        $new_movie->description = $data_request["description"];
-        $new_movie->year = $data_request["year"];
+        
+        // $new_movie->title = $data_request["title"];
+        // $new_movie->description = $data_request["description"];
+        // $new_movie->year = $data_request["year"];
+
+        // Contracted form
+        $new_movie->fill($data_request);
+
         $new_movie->rating = $data_request["rating"];
 
         // Save the new row
