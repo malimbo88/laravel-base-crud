@@ -107,9 +107,17 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Movie $movie)
     {
-        //
+
+        // Array with all the data from the database
+        $data_request = $request->all();
+
+        // Update the database with new data
+        $movie->update($data_request);
+
+        // Redirect to Uri movies.show
+        return redirect()->route("movies.show", $movie);
     }
 
     /**
