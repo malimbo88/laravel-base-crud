@@ -55,7 +55,7 @@ class MovieController extends Controller
 
         // New is a Database's row created
         $new_movie = new Movie();
-        
+
         // $new_movie->title = $data_request["title"];
         // $new_movie->description = $data_request["description"];
         // $new_movie->year = $data_request["year"];
@@ -67,6 +67,14 @@ class MovieController extends Controller
 
         // Save the new row
         $save = $new_movie->save();
+
+        // In case of $save === true:
+        // Select the last movie created by id
+        // Redirect to Uri movies.show
+        if($save) {
+          $save_movie = Movie::orderBy("id", "desc")->first();
+          return redirect()->route("movies.show", $save_movie);
+        }
 
     }
 
